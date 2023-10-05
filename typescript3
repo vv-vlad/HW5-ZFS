@@ -1,0 +1,56 @@
+[root@zfs otus]# wget -O otus_task2.file --no-check-certificate 'https://drive.google.com/u/0/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download'
+--2023-10-05 13:46:11--  https://drive.google.com/u/0/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download
+Resolving drive.google.com (drive.google.com)... 142.250.179.174, 2a00:1450:400e:800::200e
+Connecting to drive.google.com (drive.google.com)|142.250.179.174|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://drive.google.com/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download [following]
+--2023-10-05 13:46:12--  https://drive.google.com/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download
+Reusing existing connection to drive.google.com:443.
+HTTP request sent, awaiting response... 303 See Other
+Location: https://doc-00-bo-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/9ifom110mfdinc96dm6jdl72ietd87pd/1696513575000/16189157874053420687/*/1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG?e=download&uuid=d3470204-bd77-422c-89e5-d86db9d388d1 [following]
+Warning: wildcards not supported in HTTP.
+--2023-10-05 13:46:15--  https://doc-00-bo-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/9ifom110mfdinc96dm6jdl72ietd87pd/1696513575000/16189157874053420687/*/1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG?e=download&uuid=d3470204-bd77-422c-89e5-d86db9d388d1
+Resolving doc-00-bo-docs.googleusercontent.com (doc-00-bo-docs.googleusercontent.com)... 142.251.36.1, 2a00:1450:400e:801::2001
+Connecting to doc-00-bo-docs.googleusercontent.com (doc-00-bo-docs.googleusercontent.com)|142.251.36.1|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5432736 (5.2M) [application/octet-stream]
+Saving to: ‘otus_task2.file’
+
+
+ 0% [                                            ] 0           --.-K/s              
+ 6% [=>                                          ] 337,760     1.57MB/s             
+17% [======>                                     ] 942,789     2.20MB/s             
+26% [==========>                                 ] 1,445,375   2.26MB/s             
+57% [========================>                   ] 3,116,658   3.65MB/s             
+70% [=============================>              ] 3,818,438   3.57MB/s             
+83% [===================================>        ] 4,542,115   3.55MB/s             
+96% [=========================================>  ] 5,241,174   3.52MB/s             
+100%[===========================================>] 5,432,736   3.52MB/s   in 1.5s   
+
+2023-10-05 13:46:17 (3.52 MB/s) - ‘otus_task2.file’ saved [5432736/5432736]
+
+[root@zfs otus]# zfs receive otus/test@today < otus_task2.file
+[root@zfs otus]# zfs list
+NAME             USED  AVAIL     REFER  MOUNTPOINT
+otus            8.25M   344M     3.08M  /otus
+otus/hometask2  2.01M   344M     2.01M  /otus/hometask2
+otus/test       2.83M   344M     2.83M  /otus/test
+otus1           21.7M   330M     21.6M  /otus1
+otus2           17.7M   334M     17.6M  /otus2
+otus3           10.8M   341M     10.7M  /otus3
+otus4           39.2M   313M     39.1M  /otus4
+[root@zfs otus]# ll /otus/test
+total 2590
+-rw-r--r--. 1 root    root          0 May 15  2020 10M.file
+-rw-r--r--. 1 root    root     727040 May 15  2020 cinderella.tar
+-rw-r--r--. 1 root    root         65 May 15  2020 for_examaple.txt
+-rw-r--r--. 1 root    root          0 May 15  2020 homework4.txt
+-rw-r--r--. 1 root    root     309987 May 15  2020 Limbo.txt
+-rw-r--r--. 1 root    root     509836 May 15  2020 Moby_Dick.txt
+drwxr-xr-x. 3 vagrant vagrant       4 Dec 18  2017 task1
+-rw-r--r--. 1 root    root    1209374 May  6  2016 War_and_Peace.txt
+-rw-r--r--. 1 root    root     398635 May 15  2020 world.sql
+[root@zfs otus]# find /otus/test -name "secret_message"
+/otus/test/task1/file_mess/secret_message
+[root@zfs otus]# cat /otus/test/task1/file_mess/secret_message
+https://github.com/sindresorhus/awesome
