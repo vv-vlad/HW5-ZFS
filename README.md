@@ -30,5 +30,7 @@
 В содержимом найденного файла видим ссылку на GitHub: https://github.com/sindresorhus/awesome  
 ### 4. Заметки по ходу выполнения работы (не относятся непосредственно к теме самой работы, просто, с чем пришлось столкнуться)  
 Решение проблем, связанных с установкой VBox Guest Additions: https://superuser.com/questions/412527/modprobe-vboxguest-failed  
-И ещё: https://linuxconfig.org/install-virtualbox-guest-additions-on-linux-guest - чтобы нормально обмениваться файлами с виртуалкой  
+И ещё: https://linuxconfig.org/install-virtualbox-guest-additions-on-linux-guest - чтобы нормально обмениваться файлами с виртуалкой, кроме всего прочего  
 Примеры использования команды mount и umount: https://wiki.dieg.info/mount  
+Вариант подмонтирования ntfs: https://svennd.be/mount-unknown-filesystem-type-ntfs-on-centos-7-2/  
+Скачать файл с google диска через wget (иногда не качается на виртуалку/linux-машину): https://amorev.ru/skachat-fajl-s-google-diska-cherez-wget/  
