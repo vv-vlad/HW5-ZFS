@@ -27,3 +27,4 @@
 Восстановить файл локально - zfs receive;  
 Найти зашифрованное сообщение в файле secret_message.  
 Команды и их вывод в терминал - в файле ![typescript3](./typescript3)  
+В содержимом найденного файла видим ссылку на GitHub: https://github.com/sindresorhus/awesome  
