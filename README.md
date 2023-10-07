@@ -28,3 +28,7 @@
 Найти зашифрованное сообщение в файле secret_message.  
 Команды и их вывод в терминал - в файле ![typescript3](./typescript3)  
 В содержимом найденного файла видим ссылку на GitHub: https://github.com/sindresorhus/awesome  
+### 4. Заметки по ходу выполнения работы (не относятся непосредственно к теме самой работы, просто, с чем пришлось столкнуться)  
+Решение проблем, связанных с установкой VBox Guest Additions: https://superuser.com/questions/412527/modprobe-vboxguest-failed  
+И ещё: https://linuxconfig.org/install-virtualbox-guest-additions-on-linux-guest - чтобы нормально обмениваться файлами с виртуалкой  
+Примеры использования команды mount и umount: https://wiki.dieg.info/mount  
