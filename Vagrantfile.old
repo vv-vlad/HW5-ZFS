@@ -7,7 +7,6 @@ MACHINES = {
   :zfs => {
         :box_name => "centos/7",
         :box_version => "2004.01",
-	    :provision => "test.sh",
     :disks => {
         :sata1 => {
             :dfile => './sata1.vdi',
@@ -87,7 +86,22 @@ Vagrant.configure("2") do |config|
                 end
              end
           end
-        box.vm.provision "shell", path: boxconfig[:provision]
+        box.vm.provision "shell", inline: <<-SHELL
+          #install zfs repo
+          yum install -y http://download.zfsonlinux.org/epel/zfs-release.el7_8.noarch.rpm
+          #import gpg key 
+          rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-zfsonlinux
+          #install DKMS style packages for correct work ZFS
+          yum install -y epel-release kernel-devel zfs
+          #change ZFS repo
+          yum-config-manager --disable zfs
+          yum-config-manager --enable zfs-kmod
+          yum install -y zfs
+          #Add kernel module zfs
+          modprobe zfs
+          #install wget
+          yum install -y wget
+      SHELL
 
 
     end
