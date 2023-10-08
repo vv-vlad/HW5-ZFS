@@ -12,7 +12,7 @@
           /sbin/modprobe zfs
           #install wget
           yum install -y wget
-
+# Lab commands
 zpool create otus1 mirror /dev/sdb /dev/sdc
 zpool create otus2 mirror /dev/sdd /dev/sde
 zpool create otus3 mirror /dev/sdf /dev/sdg
